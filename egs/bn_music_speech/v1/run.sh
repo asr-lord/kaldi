@@ -18,13 +18,16 @@ set -e
 mfccdir=`pwd`/mfcc
 vaddir=`pwd`/mfcc
 nj=10
-stage=2
+stage=0
 
-wget https://openslr.elda.org/resources/17/musan.tar.gz
-mkdir /export/
-mkdir /export/corpora
-mkdir /export/corpora/JHU/
-tar -xf musan.tar.gz -C /export/corpora/JHU/
+if [ $stage -le 0 ]; then
+    wget https://openslr.elda.org/resources/17/musan.tar.gz
+    mkdir /export/
+    mkdir /export/corpora
+    mkdir /export/corpora/JHU/
+    tar -xf musan.tar.gz -C /export/corpora/JHU/
+    rm musan.tar.gz
+fi
 
 if [ $stage -le 0 ]; then
         local/make_bn.sh /export/corpora5/LDC/LDC97S44 \
