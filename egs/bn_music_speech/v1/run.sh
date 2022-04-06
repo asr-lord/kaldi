@@ -20,6 +20,12 @@ vaddir=`pwd`/mfcc
 nj=10
 stage=2
 
+wget https://openslr.elda.org/resources/17/musan.tar.gz
+mkdir /export/
+mkdir /export/corpora
+mkdir /export/corpora/JHU/
+tar -xf musan.tar.gz -C /export/corpora/JHU/
+
 if [ $stage -le 0 ]; then
         local/make_bn.sh /export/corpora5/LDC/LDC97S44 \
                  /export/corpora/LDC/LDC97T22 data
