@@ -17,7 +17,7 @@ affix=1a
 
 train_stage=-10
 stage=0
-nj=50
+nj=10
 test_nj=10
 
 test_sets="dev test"
@@ -31,6 +31,7 @@ ali_dir=${src_dir}_ali
 . ./cmd.sh
 
 if [ -f ./path.sh ]; then . ./path.sh; fi
+train_cmd="run.pl"
 
 set -e -u -o pipefail
 . utils/parse_options.sh 
