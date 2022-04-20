@@ -26,13 +26,13 @@ relu_dim=512
 num_epochs=40
 initial_effective_lrate=0.00001
 final_effective_lrate=0.000001
-num_jobs_initial=8
-num_jobs_final=12
+num_jobs_initial=1
+num_jobs_final=1
 remove_egs=true
 max_param_change=0.2  # Small max-param change for small network
 
 egs_dir=
-nj=40
+nj=10
 
 dir=
 affix=1a
@@ -43,6 +43,7 @@ targets_dir=
 . ./cmd.sh
 if [ -f ./path.sh ]; then . ./path.sh; fi
 . ./utils/parse_options.sh
+train_cmd="run.pl"
 
 set -o pipefail
 set -u
@@ -131,7 +132,7 @@ if [ $stage -le 2 ]; then
     --trainer.deriv-truncate-margin=10 \
     --trainer.max-param-change=$max_param_change \
     --trainer.compute-per-dim-accuracy=true \
-    --cmd="$decode_cmd" --nj $nj \
+    --cmd="$train_cmd" --nj $nj \
     --cleanup=true \
     --cleanup.remove-egs=$remove_egs \
     --cleanup.preserve-model-interval=10 \
