@@ -56,7 +56,7 @@ if [ $stage -le 1 ]; then
     echo "data/local/downloads/wget_$mic.sh already exists, better quit than re-download... (use --stage N)"
     exit 1
   fi
-  local/ami_download.sh $mic $AMI_DIR
+  local/ami_download_own.sh $mic $AMI_DIR
 fi
 
 # Prepare data directories. 
