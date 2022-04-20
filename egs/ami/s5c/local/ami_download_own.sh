@@ -19,7 +19,7 @@ fi
 mic=$1
 adir=$2
 
-amiurl=http://groups.inf.ed.ac.uk/ami
+amiurl=https://groups.inf.ed.ac.uk/ami  # https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus/
 #annotver=ami_public_manual_1.6.1
 wdir=data/local/downloads
 
